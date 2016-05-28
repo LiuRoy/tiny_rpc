@@ -1,5 +1,5 @@
 # -*- coding=utf8 -*-
-from urllib import urlencode
+from urllib.parse import urlencode
 from requests import Session
 from extension import mongo_collection
 
@@ -59,8 +59,8 @@ def login():
 
 def search():
     """按照上海各个区和年龄段进行搜索"""
-    for city in xrange(1, 20):
-        for age in xrange(22, 27, 2):
+    for city in range(1, 20):
+        for age in range(22, 27, 2):
             data = {
                 'province': '2',
                 'city': str(city),
@@ -70,7 +70,7 @@ def search():
             response = session.post('http://love.163.com/search/user/list',
                                     headers=SEARCH_HEADERS, data=urlencode(data))
             if not response.ok:
-                print 'city:{} age:{} failed'.format(city, age)
+                print ('city:{} age:{} failed'.format(city, age))
                 continue
 
             users = response.json()['list']

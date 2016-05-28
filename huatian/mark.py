@@ -4,7 +4,7 @@
 """
 
 import io
-from urllib2 import urlopen
+from urllib.request import urlopen
 from tkMessageBox import showwarning
 from Tkinter import Tk, Label, Button, Radiobutton, IntVar
 from tkFont import Font
